@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const ESLintPlugin = require("eslint-webpack-plugin");
 module.exports = {
   mode: "development",
   entry: path.join(__dirname, "./src/index.tsx"),
@@ -36,6 +37,7 @@ module.exports = {
       template: path.join(__dirname, "src", "template", "index.html"),
       hash: true,
     }),
+    new ESLintPlugin(),
   ],
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
