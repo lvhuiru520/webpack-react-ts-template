@@ -19,7 +19,10 @@ module.exports = {
           {
             loader: "css-loader",
             options: {
-              modules: true,
+              modules: {
+                exportLocalsConvention: "asIs",
+              },
+              esModule: false,
             },
           },
           { loader: "less-loader" },
@@ -34,7 +37,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      template: path.join(__dirname, "src", "template", "index.html"),
+      template: path.join(__dirname, "index.html"),
       hash: true,
     }),
     new ESLintPlugin(),
